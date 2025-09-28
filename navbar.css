@@ -1,0 +1,80 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      min-height: 100vh;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    .scroll-3d {
+      opacity: 0;
+      transform: translateY(30px) scale(0.95);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+      will-change: transform, opacity;
+    }
+
+    .scroll-3d.revealed {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid #00fff7;
+      box-shadow: 0 2px 10px rgba(0, 255, 255, 0.3);
+      z-index: 999;
+    }
+
+    nav .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 30px;
+    }
+
+    nav .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      color: #00fff7;
+      text-shadow: 0 0 5px #00f0f0;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      color: #00fff7;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      background-color: #00fff7;
+      color: #003333;
+      box-shadow: 0 0 10px #00fff7;
+    }
+
+    .spacer {
+  height: 80px; /* You can adjust this as needed */
+}

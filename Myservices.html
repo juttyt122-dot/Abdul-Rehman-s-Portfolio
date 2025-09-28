@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Services</title>
+  <style>
+    /* === Base Body Styling === */
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #074499, #6dc8f8);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 20px 60px;
+      box-sizing: border-box;
+    }
+
+    /* === Title Styling === */
+    .title-box {
+      position: relative;
+      padding: 18px 30px;
+      border: 3px inset #03151b;
+      background: linear-gradient(145deg, #0bc9bf, #04a8af);
+      box-shadow:
+        inset 0 0 20px #00bfff,
+        0 0 25px #00bfff;
+      border-radius: 16px;
+      user-select: none;
+      transition: box-shadow 0.4s ease;
+      margin-bottom: 40px;
+    }
+
+    .title-box:hover {
+      box-shadow:
+        inset 0 0 30px #00d4ff,
+        0 0 40px #00d4ff,
+        0 0 50px #1e90ff;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 5vw, 3.6rem);
+      font-weight: 900;
+      color: transparent;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      background: linear-gradient(
+        270deg,
+        #00bfff,
+        #000000,
+        #1e90ff,
+        #000000,
+        #00bfff
+      );
+      background-size: 800% 800%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: neonGradient 8s ease infinite;
+      filter:
+        drop-shadow(0 0 8px #e9ebec)
+        drop-shadow(0 0 18px #312efd)
+        drop-shadow(0 0 22px #f6f8f8);
+      position: relative;
+      cursor: default;
+      user-select: none;
+      transition: filter 0.3s ease;
+    }
+
+    h1:hover {
+      filter:
+        drop-shadow(0 0 15px #00e0ff)
+        drop-shadow(0 0 30px #00e0ff)
+        drop-shadow(0 0 40px #33ccff);
+    }
+
+    h1::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      color: #00bfff;
+      z-index: -1;
+      filter: blur(10px);
+      opacity: 0.5;
+      animation: pulseGlow 4s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes neonGradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% {
+        opacity: 0.5;
+        filter: blur(10px) drop-shadow(0 0 15px #00bfff);
+      }
+      50% {
+        opacity: 0.85;
+        filter: blur(18px) drop-shadow(0 0 35px #1e90ff);
+      }
+    }
+
+    /* === Intro Text Styling === */
+    p.intro {
+      max-width: 700px;
+      font-size: 1.15rem;
+      color: #a0dfffcc;
+      margin-bottom: 20px;
+      text-align: center;
+      line-height: 1.6;
+      font-style: italic;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      background: linear-gradient(90deg, #00bfffcc, #090b0e66);
+      padding: 15px 25px;
+      border-radius: 15px;
+      box-shadow:
+        0 4px 15px rgba(0, 191, 255, 0.25),
+        inset 0 0 10px #00bfff88;
+      backdrop-filter: blur(8px);
+      transition: color 0.4s ease, box-shadow 0.4s ease;
+      user-select: text;
+      position: relative;
+    }
+
+    p.intro::before {
+      content: "❝";
+      font-size: 3rem;
+      color: #00bfff55;
+      position: absolute;
+      top: 5px;
+      left: 10px;
+      font-weight: 900;
+      font-style: normal;
+    }
+
+    p.intro::after {
+      content: "❞";
+      font-size: 3rem;
+      color: #00bfff55;
+      position: absolute;
+      bottom: 5px;
+      right: 10px;
+      font-weight: 900;
+      font-style: normal;
+    }
+
+    p.intro:hover {
+      color: #ffffffdd;
+      box-shadow:
+        0 6px 25px rgba(0, 191, 255, 0.6),
+        inset 0 0 15px #00d4ffbb;
+    }
+
+    p.note {
+      max-width: 700px;
+      font-size: 1rem;
+      color: #55c0ffcc;
+      margin-top: 10px;
+      margin-bottom: 50px;
+      font-style: italic;
+      text-align: center;
+      letter-spacing: 0.03em;
+      user-select: text;
+      transition: color 0.3s ease;
+    }
+
+    p.note:hover {
+      color: #80d1ff;
+    }
+
+    /* === Cards === */
+    .cards-container {
+      display: flex;
+      gap: 70px;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 90vw;
+      max-width: 1300px;
+    }
+
+    .card {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(145deg, #111820, #0a1626);
+      border-radius: 20px;
+      box-shadow:
+        0 10px 20px rgba(0,191,255,0.5),
+        inset 0 0 10px #00bfff,
+        inset 0 5px 20px #005577;
+      border: 2px solid #00bfff;
+      color: #00bfff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 15px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      user-select: none;
+      cursor: default;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .card .icon {
+      font-size: 3.5rem;
+      margin-bottom: 12px;
+      filter: drop-shadow(0 0 5px #00bfff);
+    }
+
+    .card:hover {
+      transform: scale(1.15) rotate(2deg);
+      z-index: 10;
+      box-shadow:
+        0 0 30px #00bfff,
+        0 0 60px #1e90ff,
+        inset 0 0 20px #00ffff;
+    }
+
+    .card:nth-child(1)  { animation: float1 6s ease-in-out infinite; }
+    .card:nth-child(2)  { animation: float2 7s ease-in-out infinite; }
+    .card:nth-child(3)  { animation: float3 5.5s ease-in-out infinite; }
+    .card:nth-child(4)  { animation: float4 6.5s ease-in-out infinite; }
+    .card:nth-child(5)  { animation: float5 7.5s ease-in-out infinite; }
+    .card:nth-child(6)  { animation: float1 6.5s ease-in-out infinite; }
+    .card:nth-child(7)  { animation: float2 7.5s ease-in-out infinite; }
+    .card:nth-child(8)  { animation: float3 6s ease-in-out infinite; }
+    .card:nth-child(9)  { animation: float4 7s ease-in-out infinite; }
+    .card:nth-child(10) { animation: float5 8s ease-in-out infinite; }
+
+    @keyframes float1 { 
+      0%,100%{transform:translate(0,0) rotate(0deg) scale(1);} 
+      50%{transform:translate(10px,-15px) rotate(5deg) scale(1.05);} 
+    }
+    @keyframes float2 { 
+      0%,100%{transform:translate(0,0) rotate(0deg) scale(1);} 
+      50%{transform:translate(-12px,10px) rotate(-6deg) scale(0.95);} 
+    }
+    @keyframes float3 { 
+      0%,100%{transform:translate(0,0) rotate(0deg) scale(1);} 
+      50%{transform:translate(15px,12px) rotate(7deg) scale(1.1);} 
+    }
+    @keyframes float4 { 
+      0%,100%{transform:translate(0,0) rotate(0deg) scale(1);} 
+      50%{transform:translate(-10px,-10px) rotate(-4deg) scale(1.03);} 
+    }
+    @keyframes float5 { 
+      0%,100%{transform:translate(0,0) rotate(0deg) scale(1);} 
+      50%{transform:translate(8px,15px) rotate(3deg) scale(1.07);} 
+    }
+
+    
+    /* === Scroll Animation for Cards === */
+    .card {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .card.visible {
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="title-box" aria-label="Site title">
+    <h1 data-text="My Services">My Services</h1>
+  </div>
+
+  <p class="intro" aria-label="Introductory statement">
+    "Responsive, Fast, Modern Front-End Development with Clean Code, UI/UX Integration, SEO Optimization, and Cross-Browser Compatibility for All Devices."
+    Since 2025, I have provided fast, reliable IT services to customers worldwide. My expertise includes:
+  </p>
+
+  <div class="cards-container" aria-label="Services offered">
+    <div class="card"><div class="icon">🖌️</div><div><strong>HTML5 & CSS3</strong></div><small>Semantic markup & responsive styles</small></div>
+    <div class="card"><div class="icon">⚙️</div><div><strong>JavaScript (ES6+)</strong></div><small>Modern, clean & efficient code</small></div>
+    <div class="card"><div class="icon">⚛️</div><div><strong>React.js</strong></div><small>Component-based UI architecture</small></div>
+    <div class="card"><div class="icon">📱</div><div><strong>Responsive Design</strong></div><small>Mobile-first & adaptive layouts</small></div>
+    <div class="card"><div class="icon">🚀</div><div><strong>Performance Optimization</strong></div><small>Fast loading & smooth UX</small></div>
+    <div class="card"><div class="icon">🎨</div><div><strong>UI/UX Design Integration</strong></div><small>Pixel-perfect & user-friendly</small></div>
+    <div class="card"><div class="icon">🧩</div><div><strong>Component-Based Architecture</strong></div><small>Reusable & maintainable code</small></div>
+    <div class="card"><div class="icon">🌐</div><div><strong>Cross-Browser Compatibility</strong></div><small>Consistent experience everywhere</small></div>
+    <div class="card"><div class="icon">📂</div><div><strong>Portfolio Websites</strong></div><small>Showcase your work beautifully</small></div>
+    <div class="card"><div class="icon">🛠️</div><div><strong>Custom Front-End Parts</strong></div><small>Tailored components & widgets</small></div>
+    <div class="card" tabindex="0">
+      <span class="icon">🌐</span>
+      Website Development
+    </div>
+  </div>
+  <div class="title-box" style="margin-top:40px;">
+  <h1>Contact Me for A Service</h1>
+</div>
+
+ <section id="contact-me" class="contact-banner">
+  <div class="contact-section">
+    <h2 class="contact-title">Contact Me For Any Service</h2>
+    <p class="contact-subtitle">Let's connect! Feel free to send me a message.</p>
+
+    <div class="google-form-wrapper">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScTnFFo8UqgTpBX7E3K4m4ZcSLtpBvV6CifA7lKp41eS-0ggg/viewform?embedded=true" 
+              frameborder="0" 
+              marginheight="0" 
+              marginwidth="0"
+              allowfullscreen>
+        Loading…
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Section full width with background and padding */
+  #contact-me {
+    width: 100vw;
+    background: linear-gradient(145deg, #112f3e, #0a4253);
+    padding: 50px 0;
+    box-sizing: border-box;
+  }
+
+  /* Content wrapper - max width and centered */
+  .contact-section {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    color: #00cfff;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .contact-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+
+  .contact-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+
+  /* Form wrapper - full width inside content wrapper */
+  .google-form-wrapper {
+    width: 100%;
+  }
+
+  /* Iframe full width and fixed height */
+  .google-form-wrapper iframe {
+    width: 100%;
+    height: 800px; /* Adjust height as needed */
+    border: none;
+  }
+</style>
+
+  <script>
+    // Wait for the DOM to load
+    document.addEventListener("DOMContentLoaded", function () {
+      const cards = document.querySelectorAll(".card");
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationDelay = `${0.5 + index * 0.2}s`;
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+
+      cards.forEach(card => observer.observe(card));
+    });
+  </script>
+  <div class="title-box" style="margin-top:40px;">
+  <h1>Thanks For Your Time</h1>
+</div>
+<!-- Footer Section -->
+<footer class="footer">
+  <div class="footer-content">
+    <!-- Left Side -->
+    <div class="footer-info">
+      <h2 class="footer-name">Abdul Rehman</h2>
+      <p class="footer-tagline">Web Developer • UI Designer • Tech Explorer</p>
+      <p class="footer-line">This portfolio represents my Web Development journey.</p>
+    </div>
+
+    <!-- Contact Row -->
+    <div class="contact-row">
+      <p><strong>📞 Phone:</strong> <a href="tel:+923194463177">+92 319 4463177</a></p>
+      <p><strong>📧 Email:</strong> <a href="mailto:juttyt122@gmail.com">juttyt122@gmail.com</a></p>
+      <p><strong>📍 Location:</strong> Lahore, Pakistan</p>
+      <p><strong>🌐 Website:</strong> <a href="https://yourwebsite.com" target="_blank">www.Abdul-Rehman'Portfolio.com</a></p>
+      <p><strong>⏰ Available:</strong> Mon - Sat (9AM - 6PM)</p>
+    </div>
+
+    <!-- Social Icons -->
+    <div class="social-icons">
+      <a href="#" class="icon"><img src="https://img.icons8.com/ios-filled/50/00fff7/facebook-new.png" alt="Facebook" /></a>
+      <a href="#" class="icon"><img src="https://img.icons8.com/ios-filled/50/00fff7/twitter--v1.png" alt="Twitter" /></a>
+      <a href="#" class="icon"><img src="https://img.icons8.com/ios-filled/50/00fff7/linkedin.png" alt="LinkedIn" /></a>
+      <a href="https://github.com/juttyt122-dot" class="icon"><img src="https://img.icons8.com/ios-filled/50/00fff7/github.png" alt="GitHub" /></a>
+    </div>
+  </div>
+
+  <p class="footer-bottom">&copy; 2025 Abdul Rehman. All rights reserved.</p>
+</footer>
+
+<style>/* ===== Footer Styling ===== */
+.footer {
+  width: 100%;
+  background: #0a0a0a;
+  color: #f1f1f1;
+  padding: 30px 15px;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===== Name & Tagline ===== */
+.footer-name {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #00fff7;
+}
+.footer-tagline {
+  font-size: 16px;
+  color: #cccccc;
+  margin-bottom: 12px;
+}
+.footer-line {
+  margin: 4px 0;
+  font-size: 15px;
+  color: #bbbbbb;
+}
+
+/* ===== Contact Row ===== */
+.contact-row {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  flex-wrap: wrap; /* responsive */
+  font-size: 16px;
+}
+
+.contact-row p {
+  margin: 0;
+  color: #dddddd;
+}
+
+.contact-row strong {
+  color: #00fff7;
+  font-weight: 600;
+}
+
+.contact-row a {
+  color: #00fff7;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.contact-row a:hover {
+  color: #00e1d3;
+  text-decoration: underline;
+}
+
+/* ===== Social Icons ===== */
+.social-icons {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-icons .icon img {
+  width: 55px;
+  height: 55px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-icons .icon img:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 8px #00fff7);
+}
+
+/* ===== Footer Bottom ===== */
+.footer-bottom {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #888888;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .footer-name {
+    font-size: 22px;
+  }
+  .footer-tagline {
+    font-size: 14px;
+  }
+  .footer-line {
+    font-size: 13px;
+  }
+  .contact-row {
+    flex-direction: column;
+    gap: 10px;
+    font-size: 14px;
+  }
+  .social-icons .icon img {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+</style>
+
+</body>
+</html>

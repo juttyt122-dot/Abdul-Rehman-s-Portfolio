@@ -1,0 +1,35 @@
+ /* Buttons container */
+    .buttons-container {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .glow-button {
+      text-decoration: none;
+      padding: 14px 32px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      border-radius: 12px;
+      background: linear-gradient(145deg, #2ddaf8, #0a41f5);
+      color: #00fff7;
+      box-shadow:
+        0 0 10px #00fff7,
+        0 0 20px #00e5e5,
+        inset 0 0 10px rgba(0, 255, 247, 0.3);
+      border: none;
+      transition: all 0.3s ease-in-out;
+      transform-style: preserve-3d;
+      perspective: 1000px;
+    }
+
+    .glow-button:hover {
+      transform: scale(1.1) rotateX(10deg) rotateY(10deg);
+      box-shadow:
+        0 0 20px #00fff7,
+        0 0 30px #00e5e5,
+        inset 0 0 15px rgba(0, 255, 247, 0.4);
+      color: #ffffff;
+    }

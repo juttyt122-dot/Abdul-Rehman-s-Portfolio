@@ -1,0 +1,112 @@
+/* ===== Footer Styling ===== */
+.footer {
+  width: 100%;
+  background: #0a0a0a;
+  color: #f1f1f1;
+  padding: 30px 15px;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===== Name & Tagline ===== */
+.footer-name {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #00fff7;
+}
+.footer-tagline {
+  font-size: 16px;
+  color: #cccccc;
+  margin-bottom: 12px;
+}
+.footer-line {
+  margin: 4px 0;
+  font-size: 15px;
+  color: #bbbbbb;
+}
+
+/* ===== Contact Row ===== */
+.contact-row {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  flex-wrap: wrap; /* responsive */
+  font-size: 16px;
+}
+
+.contact-row p {
+  margin: 0;
+  color: #dddddd;
+}
+
+.contact-row strong {
+  color: #00fff7;
+  font-weight: 600;
+}
+
+.contact-row a {
+  color: #00fff7;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.contact-row a:hover {
+  color: #00e1d3;
+  text-decoration: underline;
+}
+
+/* ===== Social Icons ===== */
+.social-icons {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-icons .icon img {
+  width: 55px;
+  height: 55px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-icons .icon img:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 8px #00fff7);
+}
+
+/* ===== Footer Bottom ===== */
+.footer-bottom {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #888888;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .footer-name {
+    font-size: 22px;
+  }
+  .footer-tagline {
+    font-size: 14px;
+  }
+  .footer-line {
+    font-size: 13px;
+  }
+  .contact-row {
+    flex-direction: column;
+    gap: 10px;
+    font-size: 14px;
+  }
+  .social-icons .icon img {
+    width: 35px;
+    height: 35px;
+  }
+}

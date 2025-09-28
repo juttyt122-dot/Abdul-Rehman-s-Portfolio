@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Projects and Services</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 40px 20px 60px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #031309, #6dc8f8);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    /* Title Box */
+    .title-box {
+      position: relative;
+      padding: 18px 30px;
+      border: 3px inset #03151b;
+      background: linear-gradient(145deg, #0bc9bf, #04a8af);
+      box-shadow:
+        inset 0 0 20px #00bfff,
+        0 0 25px #00bfff;
+      border-radius: 16px;
+      user-select: none;
+      transition: box-shadow 0.4s ease;
+      margin-bottom: 8px; /* reduced space */
+      width: 100%;
+      max-width: 900px;
+      text-align: center;
+    }
+
+    .title-box:hover {
+      box-shadow:
+        inset 0 0 30px #00d4ff,
+        0 0 40px #00d4ff,
+        0 0 50px #1e90ff;
+    }
+
+    .title-box h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 5vw, 3.6rem);
+      font-weight: 900;
+      color: transparent;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      background: linear-gradient(
+        270deg,
+        #00bfff,
+        #000000,
+        #1e90ff,
+        #000000,
+        #00bfff
+      );
+      background-size: 800% 800%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: neonGradient 8s ease infinite;
+      filter:
+        drop-shadow(0 0 8px #00bfff)
+        drop-shadow(0 0 18px #00bfff)
+        drop-shadow(0 0 22px #1e90ff);
+      position: relative;
+      cursor: default;
+      user-select: none;
+      transition: filter 0.3s ease;
+    }
+
+    .title-box h1:hover {
+      filter:
+        drop-shadow(0 0 15px #00e0ff)
+        drop-shadow(0 0 30px #00e0ff)
+        drop-shadow(0 0 40px #33ccff);
+    }
+
+    .title-box h1::after {
+      content: 'My Personal Projects';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      color: #00bfff;
+      z-index: -1;
+      filter: blur(10px);
+      opacity: 0.5;
+      animation: pulseGlow 4s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      background-color: #007BFF; /* Blue color */
+      color: rgb(2, 2, 2);
+      padding: 25px 20px;
+      text-align: center;
+      border-radius: 0 0 30px 30px; /* Rounded bottom corners */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      margin-top: 0; /* no extra space */
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .top-bar h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    .top-bar h2 {
+      margin-top: 6px; /* reduced space */
+      font-weight: normal;
+      font-size: 1.5rem;
+    }
+
+    @keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Default state (hidden) */
+.card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Animate when visible */
+.card.visible {
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 2s; /* 2-second delay */
+}
+
+  </style>
+
+  <div class="title-box">
+    <h1> My Projects Section</h1>
+  </div>
+
+  <div class="top-bar">
+    <h1>View My Projects</h1>
+    <h2>Frontend Projects Websites – Responsive, Modern, Clean UI Web Designs</h2>
+  </div>
+ 
+<style>
+  body {
+    margin: 0;
+    background: #eaecf1;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+  }
+
+  .cards-container {
+  display: grid;
+  grid-template-columns: repeat(2, 600px); /* 2 cards per row, width matches card width */
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  width: 600px;
+  height: 300px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: transparent; /* transparent so no background color behind image */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  color: rgb(63, 228, 250);
+  display: flex;
+  flex-direction: column;
+}
+
+.card img {
+  width: 100%;
+  height: 100%; /* Full height of card */
+  object-fit: cover; /* cover ensures no gaps */
+  border-radius: 16px; /* keep border radius same as card */
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+  /* Scroll animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Start hidden */
+.card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* When visible */
+.card.visible {
+  animation: fadeInUp 0.6s ease forwards;
+}
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+    .mini-container {
+      max-width: 750px;
+      width: 90%;
+      margin: 40px auto;
+      padding: 20px 40px;
+      background: rgba(0, 255, 255, 0.05);
+      border-radius: 20px;
+      border: 2px solid #48f4fa;
+      backdrop-filter: blur(10px);
+      position: relative;
+      text-align: center;
+      transform: perspective(1000px) rotateX(6deg) rotateY(-4deg);
+      transform-style: preserve-3d;
+      transition: transform 0.4s ease, box-shadow 0.3s ease;
+      animation: neonPulse 6s ease-in-out infinite;
+      box-shadow:
+        0 0 20px rgba(0, 255, 255, 0.2),
+        0 0 40px rgba(0, 255, 255, 0.15),
+        inset 0 0 10px rgba(0, 255, 255, 0.1);
+      overflow-x: hidden;      /* scroll disabled, overflow hidden */
+      white-space: nowrap;     /* one line */
+    }
+
+    .mini-container::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 255, 255, 0.03),
+        rgba(0, 255, 255, 0.03) 1px,
+        transparent 1px,
+        transparent 2px
+      );
+      pointer-events: none;
+      z-index: 1;
+      border-radius: 50px;
+    }
+
+    .mini-container:hover {
+      transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1.02);
+      box-shadow:
+        0 0 25px rgba(0, 255, 255, 0.4),
+        0 0 60px rgba(0, 255, 255, 0.3),
+        inset 0 0 15px rgba(0, 255, 255, 0.2);
+    }
+
+    .mini-container h2 {
+      position: relative;
+      z-index: 2;
+      color: #00fff7;
+      font-size: 2rem;
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      text-shadow:
+        0 0 5px #425eff,
+        0 0 10px #040505,
+        0 0 20px #e9f0f0;
+      white-space: nowrap;
+    }
+
+    @keyframes neonPulse {
+      0%, 100% {
+        box-shadow:
+          0 0 20px rgba(0, 255, 255, 0.2),
+          0 0 40px rgba(0, 255, 255, 0.15),
+          inset 0 0 10px rgba(0, 255, 255, 0.1);
+      }
+      50% {
+        box-shadow:
+          0 0 30px rgba(0, 255, 255, 0.3),
+          0 0 60px rgba(0, 255, 255, 0.2),
+          inset 0 0 20px rgba(0, 255, 255, 0.15);
+      }
+    }
+
+</style>
+  
+
+  <div class="mini-container">
+    <h2>My First  Website With Name Timeluxe</h2>
+  </div>
+<div class="cards-container">
+
+  <div class="card" data-title="Time Lux - Products Page" data-desc="Display of products with filters, sorting, and quick view." data-img="a">
+  <img src="Accets/images/l.1.png" alt="Products Page" />
+  <div class="card-content">
+   
+  </div>
+</div>
+
+
+  <div class="card" data-title="Time Lux - Products Page" data-desc="Display of products with filters, sorting, and quick view." data-img="">
+    <img src="Accets/images/l.2.png" alt="Products Page" />
+    <div class="card-content">
+      
+    </div>
+  </div>
+
+  <div class="card" data-title="Time Lux - Collections Page" data-desc="Showcase various curated collections of products." data-img="">
+    <img src="Accets/images/l.3.png" alt="Collections Page" />
+    <div class="card-content">
+     
+    </div>
+  </div>
+
+  <div class="card" data-title="Time Lux - Contact Page" data-desc="Contact information and inquiry forms for customers." data-img="">
+    <img src="Accets/images/l.4.png" alt="Contact Page" />
+    <div class="card-content">
+     
+    </div>
+  </div>
+
+  <div class="card" data-title="Time Lux - Contact Page" data-desc="Contact information and inquiry forms for customers." data-img="">
+    <img src="Accets/images/l.5.png" alt="Contact Page" />
+    <div class="card-content">
+      
+    </div>
+  </div>
+
+  <div class="card" data-title="Time Lux - Contact Page" data-desc="Contact information and inquiry forms for customers." data-img="">
+    <img src="Accets/images/l.6.png" alt="Contact Page" />
+    <div class="card-content">
+      
+    </div>
+  </div>
+
+</div>
+ <div class="mini-container">
+    <h2>My Second Website With Name Mega Store</h2>
+  </div>
+ 
+<div class="cards-container">
+
+  <div class="card" data-title="Time Lux - Home Page" data-desc="The main landing page with stunning visuals and UX." data-img="">
+    <img src="Accets/images/m.1.png" alt="Home Page" />
+    <div class="card-content">
+     
+    </div>
+  </div>
+
+  <div class="card" data-title="Time Lux - Products Page" data-desc="Display of products with filters, sorting, and quick view." data-img="">
+    <img src="Accets/images/m.2.png" alt="Products Page" />
+    <div class="card-content">
+     
+    </div>
+  </div>
+
+  <div class="card" data-title="Time Lux - Collections Page" data-desc="Showcase various curated collections of products." data-img="">
+    <img src="Accets/images/m.3.png" alt="Collections Page" />
+    <div class="card-content">
+      
+    </div>
+  </div>
+
+  <div class="card" data-title="Time Lux - Contact Page" data-desc="Contact information and inquiry forms for customers." data-img="">
+    <img src="Accets/images/m.4.png" alt="Contact Page" />
+    <div class="card-content">
+      
+    </div>
+  </div>
+
+  <div class="card" data-title="Time Lux - Contact Page" data-desc="Contact information and inquiry forms for customers." data-img="">
+    <img src="Accets/images/m.5.png" alt="Contact Page" />
+    <div class="card-content">
+     
+    </div>
+  </div>
+
+  <div class="card" data-title="Time Lux - Contact Page" data-desc="Contact information and inquiry forms for customers." data-img="">
+    <img src="Accets/images/m.6.png" alt="Contact Page" />
+    <div class="card-content">
+      
+    </div>
+  </div>
+
+  <div class="card" data-title="Time Lux - Contact Page" data-desc="Contact information and inquiry forms for customers." data-img="">
+    <img src="Accets/images/m.7.png" alt="Contact Page" />
+    <div class="card-content">
+      
+    </div>
+  </div>
+
+  <div class="card" data-title="Time Lux - Contact Page" data-desc="Contact information and inquiry forms for customers." data-img="">
+    <img src="Accets/images/m.8.png" alt="Contact Page" />
+    <div class="card-content">
+     
+    </div>
+  </div>
+
+
+</div>
+</div>
+ <div class="mini-container">
+    <h2>My Third Website With Name Hexas Fashion Store</h2>
+  </div>
+<div class="cards-container">
+<div class="card" data-title="Time Lux - Contact Page" data-desc="Contact information and inquiry forms for customers." data-img="">
+    <img src="Accets/images/h.1.png" alt="Contact Page" />
+    <div class="card-content">
+      
+    </div>
+  </div>
+
+  <div class="card" data-title="Time Lux - Contact Page" data-desc="Contact information and inquiry forms for customers." data-img="">
+    <img src="Accets/images/h.2.png" alt="Contact Page" />
+    <div class="card-content">
+     
+    </div>
+  </div>
+
+  <div class="card" data-title="Time Lux - Contact Page" data-desc="Contact information and inquiry forms for customers." data-img="">
+    <img src="Accets/images/h.3.png" alt="Contact Page" />
+    <div class="card-content">
+      
+    </div>
+  </div>
+
+  <div class="card" data-title="Time Lux - Contact Page" data-desc="Contact information and inquiry forms for customers." data-img="">
+    <img src="Accets/images/h.4.png" alt="Contact Page" />
+    <div class="card-content">
+      
+    </div>
+  </div>
+
+   <div class="card" data-title="Time Lux - Contact Page" data-desc="Contact information and inquiry forms for customers." data-img="">
+    <img src="Accets/images/h.5.png" alt="Contact Page" />
+    <div class="card-content">
+      
+    </div>
+  </div>
+
+  <div class="card" data-title="Time Lux - Contact Page" data-desc="Contact information and inquiry forms for customers." data-img="">
+    <img src="Accets/images/h.6.png" alt="Contact Page" />
+    <div class="card-content">
+     
+    </div>
+  </div>
+
+  <div class="card" data-title="Time Lux - Contact Page" data-desc="Contact information and inquiry forms for customers." data-img="">
+    <img src="Accets/images/h.7.png" alt="Contact Page" />
+    <div class="card-content">
+      
+    </div>
+  </div>
+
+   <div class="card" data-title="Time Lux - Contact Page" data-desc="Contact information and inquiry forms for customers." data-img="">
+    <img src="Accets/images/h.8.png" alt="Contact Page" />
+    <div class="card-content">
+     
+    </div>
+  </div>
+
+  
+
+</div>
+
+<div class="mini-container">
+    <h2>My Forth Website With Name Wear Zone</h2>
+  </div>
+
+ <div class="cards-container">
+<div class="card" data-title="Time Lux - Contact Page" data-desc="Contact information and inquiry forms for customers." data-img="">
+    <img src="Accets/images/w.1.png" alt="Contact Page" />
+    <div class="card-content">
+      
+    </div>
+  </div>
+
+  <div class="card" data-title="Time Lux - Contact Page" data-desc="Contact information and inquiry forms for customers." data-img="">
+    <img src="Accets/images/w.2.png" alt="Contact Page" />
+    <div class="card-content">
+      
+    </div>
+  </div>
+
+  <div class="card" data-title="Time Lux - Contact Page" data-desc="Contact information and inquiry forms for customers." data-img="">
+    <img src="Accets/images/w.3.png" alt="Contact Page" />
+    <div class="card-content">
+     
+    </div>
+  </div>
+
+  <div class="card" data-title="Time Lux - Contact Page" data-desc="Contact information and inquiry forms for customers." data-img="">
+    <img src="Accets/images/w.4.png" alt="Contact Page" />
+    <div class="card-content">
+      
+    </div>
+  </div>
+
+   <div class="card" data-title="Time Lux - Contact Page" data-desc="Contact information and inquiry forms for customers." data-img="">
+    <img src="Accets/images/w.5.png" alt="Contact Page" />
+    <div class="card-content">
+      
+    </div>
+  </div>
+
+  <div class="card" data-title="Time Lux - Contact Page" data-desc="Contact information and inquiry forms for customers." data-img="">
+    <img src="Accets/images/w.6.png" alt="Contact Page" />
+    <div class="card-content">
+      
+    </div>
+  </div>
+
+  <div class="card" data-title="Time Lux - Contact Page" data-desc="Contact information and inquiry forms for customers." data-img="">
+    <img src="Accets/images/w.7.png" alt="Contact Page" />
+    <div class="card-content">
+     
+    </div>
+  </div>
+
+   <div class="card" data-title="Time Lux - Contact Page" data-desc="Contact information and inquiry forms for customers." data-img="">
+    <img src="Accets/images/w.8.png" alt="Contact Page" />
+    <div class="card-content">
+      
+    </div>
+  </div>
+
+
+</div>
+
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #297af3, #23effd);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+      box-sizing: border-box;
+    }
+
+    .info-box {
+      position: relative;
+      padding: 25px 40px;
+      border: 3px inset #03151b;
+      background: linear-gradient(145deg, #0b0c0b, #04a8af);
+      box-shadow:
+        inset 0 0 15px #00bfff,
+        0 0 20px #00bfff;
+      border-radius: 16px;
+      transition: box-shadow 0.4s ease;
+      user-select: none;
+      max-width: 800px;
+      text-align: center;
+    }
+
+    .info-box:hover {
+      box-shadow:
+        inset 0 0 30px #00d4ff,
+        0 0 40px #00d4ff,
+        0 0 50px #1e90ff;
+    }
+
+    .info-box .info-text {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: transparent;
+      line-height: 1.6;
+      background: linear-gradient(
+        270deg,
+        #0e1011,
+        #000000,
+        #1e90ff,
+        #000000,
+        #00bfff
+      );
+      background-size: 800% 800%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: neonGradient 8s ease infinite;
+      filter:
+        drop-shadow(0 0 4px #f2f5f7)
+        drop-shadow(0 0 8px #040505)
+        drop-shadow(0 0 10px #f6f7f8);
+      cursor: default;
+    }
+
+    @keyframes neonGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  </style>
+  <h1>
+  <div class="info-box">
+    <h2 class="info-text">
+      I know many things are missing here,<br />
+      but I didn’t upload everything because of the heavy load.
+      Thanks For Your Time.
+    </h2>
+  </div>
+</h1>
+  <!-- Footer Section -->
+<footer class="footer">
+  <div class="footer-content">
+    <!-- Left Side -->
+    <div class="footer-info">
+      <h2 class="footer-name">Abdul Rehman</h2>
+      <p class="footer-tagline">Web Developer • UI Designer • Tech Explorer</p>
+      <p class="footer-line">This portfolio represents my Web Development journey.</p>
+    </div>
+
+    <!-- Contact Row -->
+    <div class="contact-row">
+      <p><strong>📞 Phone:</strong> <a href="tel:+923194463177">+92 319 4463177</a></p>
+      <p><strong>📧 Email:</strong> <a href="mailto:juttyt122@gmail.com">juttyt122@gmail.com</a></p>
+      <p><strong>📍 Location:</strong> Lahore, Pakistan</p>
+      <p><strong>🌐 Website:</strong> <a href="https://yourwebsite.com" target="_blank">www.Abdul-Rehman'Portfolio.com</a></p>
+      <p><strong>⏰ Available:</strong> Mon - Sat (9AM - 6PM)</p>
+    </div>
+
+    <!-- Social Icons -->
+    <div class="social-icons">
+      <a href="#" class="icon"><img src="https://img.icons8.com/ios-filled/50/00fff7/facebook-new.png" alt="Facebook" /></a>
+      <a href="#" class="icon"><img src="https://img.icons8.com/ios-filled/50/00fff7/twitter--v1.png" alt="Twitter" /></a>
+      <a href="#" class="icon"><img src="https://img.icons8.com/ios-filled/50/00fff7/linkedin.png" alt="LinkedIn" /></a>
+      <a href="https://github.com/juttyt122-dot" class="icon"><img src="https://img.icons8.com/ios-filled/50/00fff7/github.png" alt="GitHub" /></a>
+    </div>
+  </div>
+
+  <p class="footer-bottom">&copy; 2025 Abdul Rehman. All rights reserved.</p>
+</footer>
+
+<style>/* ===== Footer Styling ===== */
+.footer {
+  width: 100%;
+  background: #0a0a0a;
+  color: #f1f1f1;
+  padding: 30px 15px;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===== Name & Tagline ===== */
+.footer-name {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #00fff7;
+}
+.footer-tagline {
+  font-size: 16px;
+  color: #cccccc;
+  margin-bottom: 12px;
+}
+.footer-line {
+  margin: 4px 0;
+  font-size: 15px;
+  color: #bbbbbb;
+}
+
+/* ===== Contact Row ===== */
+.contact-row {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  flex-wrap: wrap; /* responsive */
+  font-size: 16px;
+}
+
+.contact-row p {
+  margin: 0;
+  color: #dddddd;
+}
+
+.contact-row strong {
+  color: #00fff7;
+  font-weight: 600;
+}
+
+.contact-row a {
+  color: #00fff7;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.contact-row a:hover {
+  color: #00e1d3;
+  text-decoration: underline;
+}
+
+/* ===== Social Icons ===== */
+.social-icons {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-icons .icon img {
+  width: 55px;
+  height: 55px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-icons .icon img:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 8px #00fff7);
+}
+
+/* ===== Footer Bottom ===== */
+.footer-bottom {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #888888;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .footer-name {
+    font-size: 22px;
+  }
+  .footer-tagline {
+    font-size: 14px;
+  }
+  .footer-line {
+    font-size: 13px;
+  }
+  .contact-row {
+    flex-direction: column;
+    gap: 10px;
+    font-size: 14px;
+  }
+  .social-icons .icon img {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+</style>
+<script>
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        // Add delay based on index (optional for staggered effect)
+        entry.target.style.animationDelay = `${0.5 + index * 0.2}s`;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // Animate only once
+      }
+    });
+  }, {
+    threshold: 0.15
+  });
+
+  // Watch all cards
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => observer.observe(card));
+</script>
+
+</body>
+</html>
+
+
