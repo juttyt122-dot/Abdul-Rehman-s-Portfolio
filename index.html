@@ -8,218 +8,281 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins:wght@300;600&display=swap" rel="stylesheet"/>
 
-  <style>
-   
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: white;
-      min-height: 100vh;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-    }
-
-    .scroll-3d {
-      opacity: 0;
-      transform: translateY(30px) scale(0.95);
-      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-      will-change: transform, opacity;
-    }
-
-    .scroll-3d.revealed {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(0, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border-bottom: 2px solid #00fff7;
-      box-shadow: 0 2px 10px rgba(0, 255, 255, 0.3);
-      z-index: 999;
-    }
-
-    nav .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 30px;
-    }
-
-    nav .logo {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.8rem;
-      color: #00fff7;
-      text-shadow: 0 0 5px #00f0f0;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 30px;
-    }
-
-    nav ul li a {
-      color: #00fff7;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 6px 12px;
-      border-radius: 6px;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    nav ul li a:hover,
-    nav ul li a.active {
-      background-color: #00fff7;
-      color: #003333;
-      box-shadow: 0 0 10px #00fff7;
-    }
-
-    .spacer {
-  height: 80px; /* You can adjust this as needed */
+ <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
-    .banner {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 95vw;
-      max-width: 1300px;
-      height: 540px;
-      padding: 40px 60px;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(14px);
-      border: 2px solid #00fff7;
-      box-shadow: 0 0 40px rgba(0, 255, 255, 0.3);
-      animation: neonPulse 6s ease-in-out infinite;
-      overflow: hidden;
-      margin: 0 auto;
-    }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #1f1c2c, #2ad3fd);
+  color: white;
+  min-height: 100vh;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+}
 
-    .banner::before,
-    .banner::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      z-index: 0;
-      mix-blend-mode: screen;
-      pointer-events: none;
-    }
+h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  color: #31ddfc;
+  text-shadow: 0 0 10px #1acaf7;
+}
 
-    .banner::before {
-      background: conic-gradient(from 0deg,
-        rgba(0,255,255,0.15),
-        transparent 25%,
-        rgba(0,255,255,0.05),
-        transparent 50%,
-        rgba(0,255,255,0.15),
-        transparent 75%,
-        rgba(0,255,255,0.05));
-      animation: spinRays 25s linear infinite;
-    }
+p.subheading {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  color: #e0f7fa;
+  max-width: 600px;
+}
 
-    .banner::after {
-      background: radial-gradient(circle, rgba(0,255,255,0.1), transparent 70%);
-      animation: pulseGlow 4s ease-in-out infinite;
-    }
+/* Buttons */
+.buttons-container {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
-    @keyframes spinRays {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
+.glow-button {
+  text-decoration: none;
+  padding: 14px 32px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #2ddaf8, #0a41f5);
+  color: #00fff7;
+  box-shadow: 0 0 10px #00fff7, 0 0 20px #00e5e5, inset 0 0 10px rgba(0, 255, 247, 0.3);
+  border: none;
+  transition: all 0.3s ease-in-out;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
 
-    @keyframes pulseGlow {
-      0%, 100% { opacity: 0.3; transform: scale(1); }
-      50% { opacity: 0.6; transform: scale(1.2); }
-    }
+.glow-button:hover {
+  transform: scale(1.1) rotateX(10deg) rotateY(10deg);
+  box-shadow: 0 0 20px #00fff7, 0 0 30px #00e5e5, inset 0 0 15px rgba(0, 255, 247, 0.4);
+  color: #ffffff;
+}
 
-    @keyframes neonPulse {
-      0%, 100% {
-        box-shadow: 0 0 25px rgba(0, 255, 255, 0.4), 0 0 50px rgba(0, 255, 255, 0.2), 0 0 80px rgba(0, 255, 255, 0.2);
-      }
-      50% {
-        box-shadow: 0 0 35px rgba(0, 255, 255, 0.6), 0 0 60px rgba(0, 255, 255, 0.3), 0 0 100px rgba(0, 255, 255, 0.3);
-      }
-    }
+/* Scroll 3D */
+.scroll-3d {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  will-change: transform, opacity;
+}
 
-    .left, .right {
-      position: relative;
-      z-index: 1;
-    }
+.scroll-3d.revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
 
-    .left {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid #00fff7;
+  box-shadow: 0 2px 10px rgba(0, 255, 255, 0.3);
+  z-index: 999;
+}
 
-    .left img {
-      width: 350px;
-      height: 350px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #00fff7;
-      box-shadow: 0 0 40px #00fff7, 0 0 80px #00c3ff66;
-      transition: transform 0.4s ease;
-    }
+nav .nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 30px;
+}
 
-    .left img:hover {
-      transform: scale(1.1);
-    }
+nav .logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  color: #00fff7;
+  text-shadow: 0 0 5px #00f0f0;
+}
 
-    .right {
-      flex: 2;
-      padding-left: 40px;
-    }
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
 
-    .name {
-      font-size: 3rem;
-      font-family: 'Orbitron', sans-serif;
-      color: #00fff7;
-      text-shadow: 2px 2px 0 #00e1e1, 4px 4px 10px #005a5a;
-    }
+nav ul li a {
+  color: #00fff7;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-    .title {
-      font-size: 1.8rem;
-      margin-top: 10px;
-      color: #ffffffcc;
-      text-shadow: 1px 1px 5px #00cfcf;
-    }
+nav ul li a:hover,
+nav ul li a.active {
+  background-color: #00fff7;
+  color: #003333;
+  box-shadow: 0 0 10px #00fff7;
+}
 
-    .subtitle {
-      margin-top: 20px;
-      font-size: 1.3rem;
-      font-weight: bold;
-      color: #e0e0e0;
-      text-shadow: 0 0 8px #00fff7;
-      animation: fadeToggle 4s infinite;
-    }
+.spacer {
+  height: 80px;
+}
 
-    @keyframes fadeToggle {
-      0%, 100% { opacity: 0; }
-      25%, 75% { opacity: 1; }
-    }
+/* Banner */
+.banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 95vw;
+  max-width: 1300px;
+  height: 540px;
+  padding: 40px 60px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(14px);
+  border: 2px solid #00fff7;
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.3);
+  animation: neonPulse 6s ease-in-out infinite;
+  overflow: hidden;
+  margin: 0 auto;
+}
 
-    /* -------- INTRO SECTION -------- */
+.banner::before,
+.banner::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  z-index: 0;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.banner::before {
+  background: conic-gradient(from 0deg,
+    rgba(0,255,255,0.15),
+    transparent 25%,
+    rgba(0,255,255,0.05),
+    transparent 50%,
+    rgba(0,255,255,0.15),
+    transparent 75%,
+    rgba(0,255,255,0.05));
+  animation: spinRays 25s linear infinite;
+}
+
+.banner::after {
+  background: radial-gradient(circle, rgba(0,255,255,0.1), transparent 70%);
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes spinRays {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.2); }
+}
+
+@keyframes neonPulse {
+  0%, 100% {
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.4), 0 0 50px rgba(0, 255, 255, 0.2), 0 0 80px rgba(0, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(0, 255, 255, 0.6), 0 0 60px rgba(0, 255, 255, 0.3), 0 0 100px rgba(0, 255, 255, 0.3);
+  }
+}
+
+/* Left & Right */
+.left, .right {
+  position: relative;
+  z-index: 1;
+}
+
+.left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left img {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #00fff7;
+  box-shadow: 0 0 40px #00fff7, 0 0 80px #00c3ff66;
+  transition: transform 0.4s ease;
+}
+
+.left img:hover {
+  transform: scale(1.1);
+}
+
+.right {
+  flex: 2;
+  padding-left: 40px;
+}
+
+.name {
+  font-size: 3rem;
+  font-family: 'Orbitron', sans-serif;
+  color: #00fff7;
+  text-shadow: 2px 2px 0 #00e1e1, 4px 4px 10px #005a5a;
+}
+
+.title {
+  font-size: 1.8rem;
+  margin-top: 10px;
+  color: #ffffffcc;
+  text-shadow: 1px 1px 5px #00cfcf;
+}
+
+.subtitle {
+  margin-top: 20px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #e0e0e0;
+  text-shadow: 0 0 8px #00fff7;
+  animation: fadeToggle 4s infinite;
+}
+
+@keyframes fadeToggle {
+  0%, 100% { opacity: 0; }
+  25%, 75% { opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .banner { flex-direction: column; height: auto; padding: 30px 30px; }
+  .left img { width: 220px; height: 220px; }
+  .right { padding-left: 0; text-align: center; }
+  .name { font-size: 2.2rem; }
+  .title { font-size: 1.4rem; }
+  .subtitle { font-size: 1rem; }
+}
+/* -------- INTRO SECTION -------- */
     section#introduction {
       padding: 40px 20px 80px;
       display: flex;
@@ -399,85 +462,7 @@
       }
       
     }
-
-  </style>
-</head>
-<body>
-
-  <nav>
-    <div class="nav-container">
-      <div class="logo">A R's  Portfolio</div>
-      <ul>
-        <li><a href="#introduction">Introduction</a></li>
-        <li><a href="#Experience">Experience</a></li>
-        <li><a href="#My Education">My Education</a></li>
-        <li><a href="#contact-me">Contact Me</a></li>
-        <li><a href="Myservices.html">My Services</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <div class="spacer"></div>
-
-  <!-- Portfolio Banner -->
-  <section id="portfolio" class="section scroll-3d">
-    <div class="banner">
-      <div class="left">
-        <img src="i.2.jpg" alt="Abdul Rehman">
-      </div>
-      <div class="right">
-        <h1 class="name">Hi, I'm Abdul Rehman</h1>
-        <h2 class="title">Welcome to my portfolio</h2>
-        <p class="subtitle">Designing, Coding, and Delivering Stunning Web Front-Ends</p>
-        <p class="subtitle">Creative and detail-oriented Front-End Developer, skilled in crafting responsive and user-friendly websites using HTML, CSS, and JavaScript.</p>
-        <h1 class="name">Front End Web Developer</h1>
-      </div>
-    </div>
-  </section>
-
-  <!-- Introduction -->
-  <section id="introduction" class="scroll-3d">
-    <div>
-      <div class="intro-box">
-        <h1>MY INTRODUCTION</h1>
-      </div>
-      <div class="banner-intro">
-        <div class="intro-left">
-          <img src="me.jpg" alt="Abdul Rehman" />
-        </div>
-        <div class="intro-right">
-          <h1>Abdul Rehman</h1>
-          <h2>Front-End Web Developer</h2>
-          <p>
-            I'm a passionate web developer based in Lahore, Pakistan.<br/>
-            I completed a 5-month web development course at Peak Solution in 2025.<br/><br/>
-            At just 15 years old, I’ve already completed a 5-month intensive course in Front-End Web Development, gaining hands-on experience in building modern, responsive, user-friendly websites.<br/><br/>
-            I can create front-end websites of any type according to client requirements, making them stylish and customized. I can build all website components like sign-up, login pages, and more.<br/><br/>
-            I develop fully customized front-end websites including portfolios and multi-page projects.
-          </p>
-          <div class="tech-icons" aria-label="Technologies I use">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" title="HTML5" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" title="CSS3" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" title="JavaScript" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-   <section id="Experience">
-    <div class="buttons-container">
-      <a href="projects.html" class="glow-button" target="_blank" rel="noopener noreferrer">Projects</a>
-      <a href="Accets/images/cv.jpeg" class="glow-button" target="_blank" rel="noopener noreferrer">CV</a>
-      <a href="Myservices.html" class="glow-button" target="_blank" rel="noopener noreferrer">My Services</a>
-    </div>
-  <!-- More Section -->
-  <section class="section scroll-3d">
-     <div class="mini-container">
-  <h2>My Experience</h2>
-</div>
-
-<style>
-  .mini-container {
+    .mini-container {
     max-width: 600px;
     margin: 40px auto;
     padding: 20px 30px;
@@ -510,13 +495,7 @@
         0 0 40px rgba(0, 255, 255, 0.3);
     }
   }
-</style>
-
-    <title>3D Web Dev Tools Banner</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-
-    body {
+   body {
       margin: 0;
       background: linear-gradient(135deg, #1f1c2c, #2ad3fd);
       font-family: 'Poppins', sans-serif;
@@ -680,9 +659,465 @@
       }
       
     }
-  </style>
-</head>
-<body>
+    .edu-cards {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 50px;
+  background: linear-gradient(135deg, #010708, #112240);
+}
+
+.edu-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 255, 247, 0.1);
+  width: 350px;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 1px solid rgba(0, 255, 247, 0.2);
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+}
+
+.edu-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0, 255, 247, 0.3);
+  border-color: #00fff7;
+}
+
+.edu-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-bottom: 2px solid rgba(0, 255, 247, 0.3);
+}
+
+.edu-card h3 {
+  margin: 18px 0 12px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #00fff7;
+  text-shadow: 0 0 6px rgba(0, 255, 247, 0.6);
+}
+
+.edu-card p {
+  padding: 0 20px 25px;
+  font-size: 1rem;
+  color: #d1d5db;
+  line-height: 1.6;
+}
+body {
+      margin: 0;
+      background: linear-gradient(135deg, #1f1c2c, #2ad3fd);
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      color: #31ddfc;
+      text-shadow: 0 0 10px #1acaf7;
+    }
+
+    p.subheading {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      color: #e0f7fa;
+      max-width: 600px;
+    }
+
+    /* Buttons container */
+    .buttons-container {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .glow-button {
+      text-decoration: none;
+      padding: 14px 32px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      border-radius: 12px;
+      background: linear-gradient(145deg, #2ddaf8, #0a41f5);
+      color: #00fff7;
+      box-shadow:
+        0 0 10px #00fff7,
+        0 0 20px #00e5e5,
+        inset 0 0 10px rgba(0, 255, 247, 0.3);
+      border: none;
+      transition: all 0.3s ease-in-out;
+      transform-style: preserve-3d;
+      perspective: 1000px;
+    }
+
+    .glow-button:hover {
+      transform: scale(1.1) rotateX(10deg) rotateY(10deg);
+      box-shadow:
+        0 0 20px #00fff7,
+        0 0 30px #00e5e5,
+        inset 0 0 15px rgba(0, 255, 247, 0.4);
+      color: #ffffff;
+    }
+    /* Google Form Wrapper Style */
+.google-form-wrapper {
+  max-width: 1000px;
+  margin: 20px auto;
+  background: linear-gradient(145deg, #0d0d0d, #1a1a1a);
+  border: 2px solid #00fff7;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,255,255,0.2), inset 0 0 15px rgba(0,255,255,0.1);
+  overflow: hidden;
+}
+
+/* Responsive iframe */
+.google-form-wrapper iframe {
+  width: 100%;
+  height: 800px; /* adjust if form is longer */
+  display: block;
+  border: none;
+}
+/* ===== Footer Styling ===== */
+.footer {
+  width: 100%;
+  background: #0a0a0a;
+  color: #f1f1f1;
+  padding: 30px 15px;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===== Name & Tagline ===== */
+.footer-name {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #00fff7;
+}
+.footer-tagline {
+  font-size: 16px;
+  color: #cccccc;
+  margin-bottom: 12px;
+}
+.footer-line {
+  margin: 4px 0;
+  font-size: 15px;
+  color: #bbbbbb;
+}
+
+/* ===== Contact Row ===== */
+.contact-row {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  flex-wrap: wrap; /* responsive */
+  font-size: 16px;
+}
+
+.contact-row p {
+  margin: 0;
+  color: #dddddd;
+}
+
+.contact-row strong {
+  color: #00fff7;
+  font-weight: 600;
+}
+
+.contact-row a {
+  color: #00fff7;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.contact-row a:hover {
+  color: #00e1d3;
+  text-decoration: underline;
+}
+
+/* ===== Social Icons ===== */
+.social-icons {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-icons .icon img {
+  width: 55px;
+  height: 55px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-icons .icon img:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 8px #00fff7);
+}
+
+/* ===== Footer Bottom ===== */
+.footer-bottom {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #888888;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .footer-name {
+    font-size: 22px;
+  }
+  .footer-tagline {
+    font-size: 14px;
+  }
+  .footer-line {
+    font-size: 13px;
+  }
+  .contact-row {
+    flex-direction: column;
+    gap: 10px;
+    font-size: 14px;
+  }
+  .social-icons .icon img {
+    width: 35px;
+    height: 35px;
+  }
+}
+/* Small Devices: Mobile Portrait (< 480px) */
+@media (max-width: 480px) {
+
+  body {
+    padding: 20px 10px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  p.subheading {
+    font-size: 1rem;
+  }
+
+  /* Portfolio Banner */
+  .banner {
+    flex-direction: column;
+    padding: 20px 15px;
+    height: auto;
+  }
+
+  .left img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .right {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .name {
+    font-size: 1.6rem;
+  }
+
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  /* Introduction Banner */
+  .banner-intro {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .intro-left img {
+    width: 160px;
+    height: 200px;
+  }
+
+  .intro-right h1 {
+    font-size: 1.8rem;
+  }
+
+  .intro-right h2 {
+    font-size: 1rem;
+  }
+
+  .intro-right p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .tech-icons {
+    gap: 20px;
+  }
+
+  .tech-icons img {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Tools Banner */
+  .tools-banner {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 15px;
+  }
+
+  .tool {
+    width: 100px;
+    height: 100px;
+  }
+
+  .icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .tool-name {
+    font-size: 0.9rem;
+  }
+
+  /* Education Cards */
+  .edu-cards {
+    padding: 20px 10px;
+    gap: 15px;
+  }
+
+  .edu-card {
+    width: 90%;
+  }
+
+  .edu-card img {
+    height: 180px;
+  }
+
+  .edu-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .edu-card p {
+    font-size: 0.85rem;
+  }
+
+  /* Footer */
+  .contact-row {
+    flex-direction: column;
+    gap: 8px;
+    font-size: 13px;
+  }
+
+  .social-icons .icon img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .footer-name {
+    font-size: 18px;
+  }
+
+  .footer-tagline,
+  .footer-line {
+    font-size: 12px;
+  }
+}
+
+</style>
+
+
+  <nav>
+    <div class="nav-container">
+      <div class="logo">A R's  Portfolio</div>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#Experience">Experience</a></li>
+        <li><a href="#My Education">My Education</a></li>
+        <li><a href="#contact-me">Contact Me</a></li>
+        <li><a href="Myservices.html">My Services</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="spacer"></div>
+
+  <!-- Portfolio Banner -->
+  <section id="portfolio" class="section scroll-3d">
+    <div class="banner">
+      <div class="left">
+        <img src="i.2.jpg" alt="Abdul Rehman">
+      </div>
+      <div class="right">
+        <h1 class="name">Hi, I'm Abdul Rehman</h1>
+        <h2 class="title">Welcome to my portfolio</h2>
+        <p class="subtitle">Designing, Coding, and Delivering Stunning Web Front-Ends</p>
+        <p class="subtitle">Creative and detail-oriented Front-End Developer, skilled in crafting responsive and user-friendly websites using HTML, CSS, and JavaScript.</p>
+        <h1 class="name">Front End Web Developer</h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section id="introduction" class="scroll-3d">
+    <div>
+      <div class="intro-box">
+        <h1>MY INTRODUCTION</h1>
+      </div>
+      <div class="banner-intro">
+        <div class="intro-left">
+          <img src="me.jpg" alt="Abdul Rehman" />
+        </div>
+        <div class="intro-right">
+          <h1>Abdul Rehman</h1>
+          <h2>Front-End Web Developer</h2>
+          <p>
+            I'm a passionate web developer based in Lahore, Pakistan.<br/>
+            I completed a 5-month web development course at Peak Solution in 2025.<br/><br/>
+            At just 15 years old, I’ve already completed a 5-month intensive course in Front-End Web Development, gaining hands-on experience in building modern, responsive, user-friendly websites.<br/><br/>
+            I can create front-end websites of any type according to client requirements, making them stylish and customized. I can build all website components like sign-up, login pages, and more.<br/><br/>
+            I develop fully customized front-end websites including portfolios and multi-page projects.
+          </p>
+          <div class="tech-icons" aria-label="Technologies I use">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" title="HTML5" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" title="CSS3" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" title="JavaScript" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+   <section id="Experience">
+    <div class="buttons-container">
+      <a href="projects.html" class="glow-button" target="_blank" rel="noopener noreferrer">Projects</a>
+      <a href="Accets/images/cv.jpeg" class="glow-button" target="_blank" rel="noopener noreferrer">CV</a>
+      <a href="Myservices.html" class="glow-button" target="_blank" rel="noopener noreferrer">My Services</a>
+    </div>
+  <!-- More Section -->
+  <section class="section scroll-3d">
+     <div class="mini-container">
+  <h2>My Experience</h2>
+</div>
+
+    <title>3D Web Dev Tools Banner</title>
 
     <div class="tools-banner">
 
@@ -802,95 +1237,11 @@
   <h2>My Education</h2>
 </div>
 
-<style>
-  .mini-container {
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 20px 30px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    border: 2px solid #00fff7;
-    box-shadow:
-      0 0 15px rgba(0, 255, 255, 0.3),
-      0 0 30px rgba(0, 255, 255, 0.2);
-    text-align: center;
-    animation: neonPulse 4s ease-in-out infinite;
-  }
 
-  .mini-container h2 {
-    color: #1ff1f8;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.8rem;
-    text-shadow: 1px 1px 6px #10e8f0;
-  }
-
-  @keyframes neonPulse {
-    0%, 100% {
-      box-shadow:
-        0 0 15px rgba(0, 255, 255, 0.3),
-        0 0 30px rgba(0, 255, 255, 0.2);
-    }
-    50% {
-      box-shadow:
-        0 0 20px rgba(0, 255, 255, 0.5),
-        0 0 40px rgba(0, 255, 255, 0.3);
-    }
-  }
-</style>
  <!-- More Section -->
   <section class="section scroll-3d">
      <title>My Education, Tools & Contact</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
-  <style>.edu-cards {
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 50px;
-  background: linear-gradient(135deg, #010708, #112240);
-}
-
-.edu-card {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0, 255, 247, 0.1);
-  width: 350px;
-  text-align: center;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  border: 1px solid rgba(0, 255, 247, 0.2);
-  backdrop-filter: blur(8px);
-  overflow: hidden;
-}
-
-.edu-card:hover {
-  transform: translateY(-12px) scale(1.02);
-  box-shadow: 0 15px 40px rgba(0, 255, 247, 0.3);
-  border-color: #00fff7;
-}
-
-.edu-card img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  border-bottom: 2px solid rgba(0, 255, 247, 0.3);
-}
-
-.edu-card h3 {
-  margin: 18px 0 12px;
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #00fff7;
-  text-shadow: 0 0 6px rgba(0, 255, 247, 0.6);
-}
-
-.edu-card p {
-  padding: 0 20px 25px;
-  font-size: 1rem;
-  color: #d1d5db;
-  line-height: 1.6;
-}
-
-</style>
     <div class="edu-cards">
   <div class="edu-card">
     <img src="i.1.jpg" alt="High School" class="card-image" />
@@ -911,77 +1262,6 @@
   </div>
 </div>
 
-  </section>
-
- 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-
-    body {
-      margin: 0;
-      background: linear-gradient(135deg, #1f1c2c, #2ad3fd);
-      font-family: 'Poppins', sans-serif;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-    }
-
-    h1 {
-      font-size: 2.8rem;
-      margin-bottom: 10px;
-      color: #31ddfc;
-      text-shadow: 0 0 10px #1acaf7;
-    }
-
-    p.subheading {
-      font-size: 1.2rem;
-      margin-bottom: 40px;
-      color: #e0f7fa;
-      max-width: 600px;
-    }
-
-    /* Buttons container */
-    .buttons-container {
-      display: flex;
-      gap: 30px;
-      margin-bottom: 40px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .glow-button {
-      text-decoration: none;
-      padding: 14px 32px;
-      font-size: 1.2rem;
-      font-weight: 700;
-      border-radius: 12px;
-      background: linear-gradient(145deg, #2ddaf8, #0a41f5);
-      color: #00fff7;
-      box-shadow:
-        0 0 10px #00fff7,
-        0 0 20px #00e5e5,
-        inset 0 0 10px rgba(0, 255, 247, 0.3);
-      border: none;
-      transition: all 0.3s ease-in-out;
-      transform-style: preserve-3d;
-      perspective: 1000px;
-    }
-
-    .glow-button:hover {
-      transform: scale(1.1) rotateX(10deg) rotateY(10deg);
-      box-shadow:
-        0 0 20px #00fff7,
-        0 0 30px #00e5e5,
-        inset 0 0 15px rgba(0, 255, 247, 0.4);
-      color: #ffffff;
-    }
-
-  </style>
 </head>
 <body>
  
@@ -989,41 +1269,6 @@
   <h2>Contact Me</h2>
 </div>
 
-<style>
-  .mini-container {
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 20px 30px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    border: 2px solid #0ad5f0;
-    box-shadow:
-      0 0 15px rgba(0, 255, 255, 0.3),
-      0 0 30px rgba(0, 255, 255, 0.2);
-    text-align: center;
-    animation: neonPulse 4s ease-in-out infinite;
-  }
-
-  .mini-container h2 {
-    color: #00fff7;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.8rem;
-    text-shadow: 1px 1px 6px #00e1e1;
-  }
-
-  @keyframes neonPulse {
-    0%, 100% {
-      box-shadow:
-        0 0 15px rgba(0, 255, 255, 0.3),
-        0 0 30px rgba(0, 255, 255, 0.2);
-    }
-    50% {
-      box-shadow:
-        0 0 20px rgba(0, 255, 255, 0.5),
-        0 0 40px rgba(0, 255, 255, 0.3);
-    }
-  }
-</style>
 
   <!-- Contact Form Section -->
 <section id="contact-me" class="contact-banner">
@@ -1042,69 +1287,14 @@
       </iframe>
     </div>
   </div>
-</section>
 
-<style>
-/* Google Form Wrapper Style */
-.google-form-wrapper {
-  max-width: 1000px;
-  margin: 20px auto;
-  background: linear-gradient(145deg, #0d0d0d, #1a1a1a);
-  border: 2px solid #00fff7;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0,255,255,0.2), inset 0 0 15px rgba(0,255,255,0.1);
-  overflow: hidden;
-}
-
-/* Responsive iframe */
-.google-form-wrapper iframe {
-  width: 100%;
-  height: 800px; /* adjust if form is longer */
-  display: block;
-  border: none;
-}
-</style>
   <section class="section scroll-3d">
   <section class="section scroll-3d">
     <div class="mini-container">
   <h2> Thanks For Visiting </h2>
 </div>
 
-<style>
-  .mini-container {
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 20px 30px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    border: 2px solid #0ad5f0;
-    box-shadow:
-      0 0 15px rgba(0, 255, 255, 0.3),
-      0 0 30px rgba(0, 255, 255, 0.2);
-    text-align: center;
-    animation: neonPulse 4s ease-in-out infinite;
-  }
 
-  .mini-container h2 {
-    color: #00fff7;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.8rem;
-    text-shadow: 1px 1px 6px #00e1e1;
-  }
-
-  @keyframes neonPulse {
-    0%, 100% {
-      box-shadow:
-        0 0 15px rgba(0, 255, 255, 0.3),
-        0 0 30px rgba(0, 255, 255, 0.2);
-    }
-    50% {
-      box-shadow:
-        0 0 20px rgba(0, 255, 255, 0.5),
-        0 0 40px rgba(0, 255, 255, 0.3);
-    }
-  }
-</style>
   
  <!-- Footer Section -->
 <footer class="footer">
@@ -1136,122 +1326,6 @@
 
   <p class="footer-bottom">&copy; 2025 Abdul Rehman. All rights reserved.</p>
 </footer>
-
-<style>/* ===== Footer Styling ===== */
-.footer {
-  width: 100%;
-  background: #0a0a0a;
-  color: #f1f1f1;
-  padding: 30px 15px;
-  text-align: center;
-}
-
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* ===== Name & Tagline ===== */
-.footer-name {
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 8px;
-  color: #00fff7;
-}
-.footer-tagline {
-  font-size: 16px;
-  color: #cccccc;
-  margin-bottom: 12px;
-}
-.footer-line {
-  margin: 4px 0;
-  font-size: 15px;
-  color: #bbbbbb;
-}
-
-/* ===== Contact Row ===== */
-.contact-row {
-  margin: 20px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 35px;
-  flex-wrap: wrap; /* responsive */
-  font-size: 16px;
-}
-
-.contact-row p {
-  margin: 0;
-  color: #dddddd;
-}
-
-.contact-row strong {
-  color: #00fff7;
-  font-weight: 600;
-}
-
-.contact-row a {
-  color: #00fff7;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-.contact-row a:hover {
-  color: #00e1d3;
-  text-decoration: underline;
-}
-
-/* ===== Social Icons ===== */
-.social-icons {
-  margin: 20px 0;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.social-icons .icon img {
-  width: 55px;
-  height: 55px;
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.social-icons .icon img:hover {
-  transform: scale(1.2);
-  filter: drop-shadow(0 0 8px #00fff7);
-}
-
-/* ===== Footer Bottom ===== */
-.footer-bottom {
-  margin-top: 20px;
-  font-size: 14px;
-  color: #888888;
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 768px) {
-  .footer-name {
-    font-size: 22px;
-  }
-  .footer-tagline {
-    font-size: 14px;
-  }
-  .footer-line {
-    font-size: 13px;
-  }
-  .contact-row {
-    flex-direction: column;
-    gap: 10px;
-    font-size: 14px;
-  }
-  .social-icons .icon img {
-    width: 35px;
-    height: 35px;
-  }
-}
-
-</style>
-</section>
    
   <!-- JS Scroll Animation -->
   <script>
@@ -1274,4 +1348,3 @@
 
 </body>
 </html>
-
