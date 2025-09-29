@@ -371,9 +371,12 @@ body {
 
 .card img {
   width: 100%;
-  height: auto;
+  height: 220px;   /* sab images same height */
+  object-fit: cover;
+  border-radius: 10px;
   display: block;
 }
+
 
 .card:hover {
   transform: translateY(-8px);
@@ -491,18 +494,6 @@ body {
     font-size: 1.2rem;
     line-height: 1.4;
     white-space: normal; /* allow text wrapping */
-  }
-}
-@media (max-width: 768px) {
-  .cards-container {
-    grid-template-columns: 1fr; /* ek column me cards */
-    gap: 15px;
-    padding: 0 10px; /* thoda side space */
-  }
-
-  .card {
-    max-width: 100%;
-    margin: 0 auto;
   }
 }
 
@@ -818,6 +809,5 @@ body {
 
 </body>
 </html>
-
 
 
