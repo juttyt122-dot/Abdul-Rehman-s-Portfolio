@@ -286,6 +286,84 @@
         transform: translateY(0);
       }
     }
+    /* === Responsive Design for Services Section === */
+@media (max-width: 1024px) {
+  .cards-container {
+    gap: 40px;
+  }
+  .card {
+    width: 220px;
+    height: auto;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cards-container {
+    gap: 25px;
+  }
+  .card {
+    width: 45%;
+    height: auto;
+    padding: 20px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .card {
+    width: 90%;
+    height: auto;
+    padding: 20px;
+    font-size: 0.95rem;
+  }
+}
+
+    /* Section full width with background and padding */
+  #contact-me {
+    width: 100vw;
+    background: linear-gradient(145deg, #112f3e, #0a4253);
+    padding: 50px 0;
+    box-sizing: border-box;
+  }
+
+  /* Content wrapper - max width and centered */
+  .contact-section {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    color: #00cfff;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .contact-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+
+  .contact-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+
+  /* Form wrapper - full width inside content wrapper */
+  .google-form-wrapper {
+    width: 100%;
+  }
+
+  /* Iframe full width and fixed height */
+  .google-form-wrapper iframe {
+    width: 100%;
+    height: 800px; /* Adjust height as needed */
+    border: none;
+  }
   </style>
 </head>
 <body>
@@ -334,49 +412,6 @@
     </div>
   </div>
 </section>
-
-<style>
-  /* Section full width with background and padding */
-  #contact-me {
-    width: 100vw;
-    background: linear-gradient(145deg, #112f3e, #0a4253);
-    padding: 50px 0;
-    box-sizing: border-box;
-  }
-
-  /* Content wrapper - max width and centered */
-  .contact-section {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0 20px;
-    box-sizing: border-box;
-    color: #00cfff;
-    text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-
-  .contact-title {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-  }
-
-  .contact-subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-  }
-
-  /* Form wrapper - full width inside content wrapper */
-  .google-form-wrapper {
-    width: 100%;
-  }
-
-  /* Iframe full width and fixed height */
-  .google-form-wrapper iframe {
-    width: 100%;
-    height: 800px; /* Adjust height as needed */
-    border: none;
-  }
-</style>
 
   <script>
     // Wait for the DOM to load
