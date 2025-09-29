@@ -493,6 +493,18 @@ body {
     white-space: normal; /* allow text wrapping */
   }
 }
+@media (max-width: 768px) {
+  .cards-container {
+    grid-template-columns: 1fr; /* ek column me cards */
+    gap: 15px;
+    padding: 0 10px; /* thoda side space */
+  }
+
+  .card {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
 
 </style>
 </head>
@@ -806,5 +818,6 @@ body {
 
 </body>
 </html>
+
 
 
