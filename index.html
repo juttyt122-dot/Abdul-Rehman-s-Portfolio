@@ -1083,37 +1083,6 @@ body {
   border: none;
 }
 
-/* Footer Section */
-.footer {
-  background: #0b0c10;
-  color: #fff;
-  padding: 2rem;
-  text-align: center;
-  margin-top: 3rem;
-}
-
-.footer-content {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.footer-name {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #2ad3fd;
-}
-
-.footer-tagline {
-  font-size: 1.1rem;
-  margin: 0.5rem 0;
-  color: #ccc;
-}
-
-.footer-line {
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
-  color: #aaa;
-}
 
 /* Contact Row */
 .contact-row {
@@ -1150,12 +1119,7 @@ body {
   transform: scale(1.2);
 }
 
-/* Footer Bottom */
-.footer-bottom {
-  font-size: 0.9rem;
-  color: #888;
-  margin-top: 1rem;
-}
+
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -1177,13 +1141,7 @@ body {
     gap: 0.6rem;
   }
 
-  .footer-name {
-    font-size: 1.6rem;
-  }
-
-  .footer-tagline {
-    font-size: 1rem;
-  }
+ 
 }
 
 @media (max-width: 480px) {
@@ -1199,22 +1157,7 @@ body {
     height: 450px;
   }
 
-  .footer-name {
-    font-size: 1.4rem;
-  }
-
-  .footer-tagline {
-    font-size: 0.9rem;
-  }
-
-  .footer-line {
-    font-size: 0.85rem;
-  }
-
-  .social-icons .icon img {
-    width: 32px;
-    height: 32px;
-  }
+  
 }
 /* Navbar Base */
 .navbar {
@@ -1295,6 +1238,35 @@ body {
     display: block;
   }
 }
+footer {
+  background: #000; /* ya jo tum use kar rahe ho */
+  padding: 10px 0;  /* height kam karne ke liye */
+  text-align: center;
+}
+
+footer .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 25px; /* icons ke darmiyan space */
+  margin: 10px 0;
+}
+
+footer .social-icons a {
+  color: #00f0ff; /* neon effect match karne ke liye */
+  font-size: 28px; /* thoda bara icons */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+footer .social-icons a:hover {
+  transform: scale(1.2);
+  color: #0ff;
+}
+
+footer p {
+  font-size: 14px; /* copyright text chota */
+  margin-top: 8px;
+  color: #ccc;
+}
 
 
 </style>
@@ -1334,7 +1306,7 @@ body {
   <section id="introduction" class="scroll-3d">
     <div>
       <div class="intro-box">
-        <h1>INTRODUCTION</h1>
+        <h1>MY INTRODUCTION</h1>
       </div>
       <div class="banner-intro">
         <div class="intro-left">
